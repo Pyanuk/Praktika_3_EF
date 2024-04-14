@@ -1,0 +1,123 @@
+﻿<Page x:Class="Praktika_1_EF.FourPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:Praktika_1_EF"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="FourPage">
+
+    <Grid>
+        <DataGrid x:Name="CUSTOMER_ORDERDataGrid" AutoGenerateColumns="False" Margin="0,183,0,138" SelectionChanged="CUSTOMER_ORDERDataGrid_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding ID_CUSTOMER_ORDER}" />
+                <DataGridTextColumn Header="Адрес__коффейни__ID" Binding="{Binding NAME_COFFEE_ID}" />
+                <DataGridTextColumn Header="Клиент__ID" Binding="{Binding CLIENT_ID}" />
+                <DataGridTextColumn Header="Вид__коффe__ID" Binding="{Binding ORDER_COFFEE_ID}" />
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <Button x:Name="insert"  Content="Добавить данные" Margin="0,430,10,0"  Click="insert_Click"/>
+        <Button x:Name="delete"  Content="Удаление данных" Margin="0,405,10,20" Click="delete_Click1"/>
+        <Button x:Name="update"  Content="Обновление данных" Margin="0,380,10,45" Click="update_Click"/>
+
+        <TextBox x:Name="adres" Margin="0,361,10,67">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TextBox}">
+                                <Grid>
+                                    <Border x:Name="border"
+                Background="{TemplateBinding Background}"
+                BorderBrush="{TemplateBinding BorderBrush}"
+                BorderThickness="{TemplateBinding BorderThickness}" />
+                                    <TextBlock x:Name="watermark"
+                   Text="Введите ID кофейни ..."
+                   Margin="2"
+                   Foreground="Gray"
+                   Visibility="Collapsed"
+                   IsHitTestVisible="False"/>
+                                    <ScrollViewer x:Name="PART_ContentHost" />
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="Text" Value="">
+                                        <Setter TargetName="watermark" Property="Visibility" Value="Visible" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+
+        <TextBox x:Name="clietn" Margin="0,339,10,89">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TextBox}">
+                                <Grid>
+                                    <Border x:Name="border"
+        Background="{TemplateBinding Background}"
+        BorderBrush="{TemplateBinding BorderBrush}"
+        BorderThickness="{TemplateBinding BorderThickness}" />
+                                    <TextBlock x:Name="watermark"
+           Text="Введите ID клиента ..."
+           Margin="2"
+           Foreground="Gray"
+           Visibility="Collapsed"
+           IsHitTestVisible="False"/>
+                                    <ScrollViewer x:Name="PART_ContentHost" />
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="Text" Value="">
+                                        <Setter TargetName="watermark" Property="Visibility" Value="Visible" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+
+        <TextBox x:Name="cofee" Margin="0,317,10,111">
+            <TextBox.Resources>
+                <Style TargetType="{x:Type TextBox}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type TextBox}">
+                                <Grid>
+                                    <Border x:Name="border"
+Background="{TemplateBinding Background}"
+BorderBrush="{TemplateBinding BorderBrush}"
+BorderThickness="{TemplateBinding BorderThickness}" />
+                                    <TextBlock x:Name="watermark"
+   Text="Введите ID вида коффe ..."
+   Margin="2"
+   Foreground="Gray"
+   Visibility="Collapsed"
+   IsHitTestVisible="False"/>
+                                    <ScrollViewer x:Name="PART_ContentHost" />
+                                </Grid>
+                                <ControlTemplate.Triggers>
+                                    <Trigger Property="Text" Value="">
+                                        <Setter TargetName="watermark" Property="Visibility" Value="Visible" />
+                                    </Trigger>
+                                </ControlTemplate.Triggers>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+
+        <ComboBox x:Name="CUSTOMER_ORDERComboBox" Margin="0,127,0,306" SelectionChanged="CUSTOMER_ORDERComboBox_SelectionChanged"/>
+        <ComboBox x:Name="CUSTOMER_ORDERComboBox1" Margin="0,145,0,288" SelectionChanged="CUSTOMER_ORDERComboBox_SelectionChanged1"/>
+        <ComboBox x:Name="CUSTOMER_ORDERComboBox2" Margin="0,161,0,272" SelectionChanged="CUSTOMER_ORDERComboBox_SelectionChanged2"/>
+
+    </Grid>
+</Page>

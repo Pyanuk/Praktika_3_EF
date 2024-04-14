@@ -1,0 +1,145 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище COFFEE_HOUSEModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="CLIENT">
+    <Key>
+      <PropertyRef Name="ID_CLIENT" />
+    </Key>
+    <Property Name="ID_CLIENT" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SURNAME" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="NAME_CLIENT" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="MIDDLE_NAME" Type="varchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="CUSTOMER_ORDER">
+    <Key>
+      <PropertyRef Name="ID_CUSTOMER_ORDER" />
+    </Key>
+    <Property Name="ID_CUSTOMER_ORDER" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NAME_COFFEE_ID" Type="int" Nullable="false" />
+    <Property Name="CLIENT_ID" Type="int" Nullable="false" />
+    <Property Name="ORDER_COFFEE_ID" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="NAME_COFFEE">
+    <Key>
+      <PropertyRef Name="ID_NAME_COFFEE_HOUSE" />
+    </Key>
+    <Property Name="ID_NAME_COFFEE_HOUSE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TITLE" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ADDRESS_COFFEE_HOUSE" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ORDER_COFFEE">
+    <Key>
+      <PropertyRef Name="ID_ORDER_COFFEE" />
+    </Key>
+    <Property Name="ID_ORDER_COFFEE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="COFFEE_NAME" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="COFFEE_PRICE" Type="real" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__CUSTOMER___CLIEN__5070F446">
+    <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="1" />
+    <End Role="CUSTOMER_ORDER" Type="Self.CUSTOMER_ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENT">
+        <PropertyRef Name="ID_CLIENT" />
+      </Principal>
+      <Dependent Role="CUSTOMER_ORDER">
+        <PropertyRef Name="CLIENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CUSTOMER___NAME___4F7CD00D">
+    <End Role="NAME_COFFEE" Type="Self.NAME_COFFEE" Multiplicity="1" />
+    <End Role="CUSTOMER_ORDER" Type="Self.CUSTOMER_ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NAME_COFFEE">
+        <PropertyRef Name="ID_NAME_COFFEE_HOUSE" />
+      </Principal>
+      <Dependent Role="CUSTOMER_ORDER">
+        <PropertyRef Name="NAME_COFFEE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__CUSTOMER___ORDER__5165187F">
+    <End Role="ORDER_COFFEE" Type="Self.ORDER_COFFEE" Multiplicity="1" />
+    <End Role="CUSTOMER_ORDER" Type="Self.CUSTOMER_ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDER_COFFEE">
+        <PropertyRef Name="ID_ORDER_COFFEE" />
+      </Principal>
+      <Dependent Role="CUSTOMER_ORDER">
+        <PropertyRef Name="ORDER_COFFEE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_CLIENT_ID">
+    <End Role="CLIENT" Type="Self.CLIENT" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CUSTOMER_ORDER" Type="Self.CUSTOMER_ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CLIENT">
+        <PropertyRef Name="ID_CLIENT" />
+      </Principal>
+      <Dependent Role="CUSTOMER_ORDER">
+        <PropertyRef Name="CLIENT_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_NAME_COFFEE_ID">
+    <End Role="NAME_COFFEE" Type="Self.NAME_COFFEE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CUSTOMER_ORDER" Type="Self.CUSTOMER_ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="NAME_COFFEE">
+        <PropertyRef Name="ID_NAME_COFFEE_HOUSE" />
+      </Principal>
+      <Dependent Role="CUSTOMER_ORDER">
+        <PropertyRef Name="NAME_COFFEE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORDER_COFFEE_ID">
+    <End Role="ORDER_COFFEE" Type="Self.ORDER_COFFEE" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="CUSTOMER_ORDER" Type="Self.CUSTOMER_ORDER" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDER_COFFEE">
+        <PropertyRef Name="ID_ORDER_COFFEE" />
+      </Principal>
+      <Dependent Role="CUSTOMER_ORDER">
+        <PropertyRef Name="ORDER_COFFEE_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="Хранилище COFFEE_HOUSEModelContainer">
+    <EntitySet Name="CLIENT" EntityType="Self.CLIENT" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CUSTOMER_ORDER" EntityType="Self.CUSTOMER_ORDER" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="NAME_COFFEE" EntityType="Self.NAME_COFFEE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDER_COFFEE" EntityType="Self.ORDER_COFFEE" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__CUSTOMER___CLIEN__5070F446" Association="Self.FK__CUSTOMER___CLIEN__5070F446">
+      <End Role="CLIENT" EntitySet="CLIENT" />
+      <End Role="CUSTOMER_ORDER" EntitySet="CUSTOMER_ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CUSTOMER___NAME___4F7CD00D" Association="Self.FK__CUSTOMER___NAME___4F7CD00D">
+      <End Role="NAME_COFFEE" EntitySet="NAME_COFFEE" />
+      <End Role="CUSTOMER_ORDER" EntitySet="CUSTOMER_ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK__CUSTOMER___ORDER__5165187F" Association="Self.FK__CUSTOMER___ORDER__5165187F">
+      <End Role="ORDER_COFFEE" EntitySet="ORDER_COFFEE" />
+      <End Role="CUSTOMER_ORDER" EntitySet="CUSTOMER_ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_CLIENT_ID" Association="Self.FK_CLIENT_ID">
+      <End Role="CLIENT" EntitySet="CLIENT" />
+      <End Role="CUSTOMER_ORDER" EntitySet="CUSTOMER_ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_NAME_COFFEE_ID" Association="Self.FK_NAME_COFFEE_ID">
+      <End Role="NAME_COFFEE" EntitySet="NAME_COFFEE" />
+      <End Role="CUSTOMER_ORDER" EntitySet="CUSTOMER_ORDER" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORDER_COFFEE_ID" Association="Self.FK_ORDER_COFFEE_ID">
+      <End Role="ORDER_COFFEE" EntitySet="ORDER_COFFEE" />
+      <End Role="CUSTOMER_ORDER" EntitySet="CUSTOMER_ORDER" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

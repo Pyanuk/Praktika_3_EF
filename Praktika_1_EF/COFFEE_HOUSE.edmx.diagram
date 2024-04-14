@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="12793d22960a4baea9a52694afe81153" Name="Diagram1">
+        <EntityTypeShape EntityType="COFFEE_HOUSEModel.CLIENT" Width="1.5" PointX="0.75" PointY="1.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="COFFEE_HOUSEModel.CUSTOMER_ORDER" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="COFFEE_HOUSEModel.NAME_COFFEE" Width="1.5" PointX="0.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="COFFEE_HOUSEModel.ORDER_COFFEE" Width="1.5" PointX="0.75" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="COFFEE_HOUSEModel.FK__CUSTOMER___CLIEN__5070F446" ManuallyRouted="false" />
+        <AssociationConnector Association="COFFEE_HOUSEModel.FK_CLIENT_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="COFFEE_HOUSEModel.FK__CUSTOMER___NAME___4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="COFFEE_HOUSEModel.FK__CUSTOMER___ORDER__5165187F" ManuallyRouted="false" />
+        <AssociationConnector Association="COFFEE_HOUSEModel.FK_NAME_COFFEE_ID" ManuallyRouted="false" />
+        <AssociationConnector Association="COFFEE_HOUSEModel.FK_ORDER_COFFEE_ID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

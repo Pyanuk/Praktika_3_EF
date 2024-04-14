@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище COFFEE_HOUSEModelContainer" CdmEntityContainer="COFFEE_HOUSEEntities">
+    <EntitySetMapping Name="CLIENT">
+      <EntityTypeMapping TypeName="COFFEE_HOUSEModel.CLIENT">
+        <MappingFragment StoreEntitySet="CLIENT">
+          <ScalarProperty Name="ID_CLIENT" ColumnName="ID_CLIENT" />
+          <ScalarProperty Name="SURNAME" ColumnName="SURNAME" />
+          <ScalarProperty Name="NAME_CLIENT" ColumnName="NAME_CLIENT" />
+          <ScalarProperty Name="MIDDLE_NAME" ColumnName="MIDDLE_NAME" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CUSTOMER_ORDER">
+      <EntityTypeMapping TypeName="COFFEE_HOUSEModel.CUSTOMER_ORDER">
+        <MappingFragment StoreEntitySet="CUSTOMER_ORDER">
+          <ScalarProperty Name="ID_CUSTOMER_ORDER" ColumnName="ID_CUSTOMER_ORDER" />
+          <ScalarProperty Name="NAME_COFFEE_ID" ColumnName="NAME_COFFEE_ID" />
+          <ScalarProperty Name="CLIENT_ID" ColumnName="CLIENT_ID" />
+          <ScalarProperty Name="ORDER_COFFEE_ID" ColumnName="ORDER_COFFEE_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="NAME_COFFEE">
+      <EntityTypeMapping TypeName="COFFEE_HOUSEModel.NAME_COFFEE">
+        <MappingFragment StoreEntitySet="NAME_COFFEE">
+          <ScalarProperty Name="ID_NAME_COFFEE_HOUSE" ColumnName="ID_NAME_COFFEE_HOUSE" />
+          <ScalarProperty Name="TITLE" ColumnName="TITLE" />
+          <ScalarProperty Name="ADDRESS_COFFEE_HOUSE" ColumnName="ADDRESS_COFFEE_HOUSE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ORDER_COFFEE">
+      <EntityTypeMapping TypeName="COFFEE_HOUSEModel.ORDER_COFFEE">
+        <MappingFragment StoreEntitySet="ORDER_COFFEE">
+          <ScalarProperty Name="ID_ORDER_COFFEE" ColumnName="ID_ORDER_COFFEE" />
+          <ScalarProperty Name="COFFEE_NAME" ColumnName="COFFEE_NAME" />
+          <ScalarProperty Name="COFFEE_PRICE" ColumnName="COFFEE_PRICE" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
